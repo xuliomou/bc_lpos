@@ -260,13 +260,13 @@ def escenario_2(guardar=False, epocas=10, bloques_por_epoca=1000, prob_cambio=0.
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
     for n in nodos:
-        ax1.plot([c[n] * 100 for c in historia_cuotas], marker="o", label=n)
+        ax1.plot([c[n] * 100 for c in historia_cuotas], marker="o", label=n, drawstyle="steps-post")
     ax1.axhline(50, ls="--", c="red", lw=1)
     ax1.set_xlabel("época (1000 bloques)")
     ax1.set_ylabel("% del stake efectivo")
     ax1.set_title("Cuota de cada pool")
     ax1.legend(fontsize=8)
-    ax2.plot(historia_nakamoto, marker="o", c="black")
+    ax2.plot(historia_nakamoto, marker="o", c="black", drawstyle="steps-post")
     ax2.set_ylim(0, max(historia_nakamoto) + 1)
     ax2.set_xlabel("época (1000 bloques)")
     ax2.set_title("Coeficiente de Nakamoto")
